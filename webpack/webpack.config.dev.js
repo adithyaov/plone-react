@@ -102,15 +102,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.(json)$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'json-loader',
-          },
-        ],
-      },
-      {
         test: /\.less$/,
         use: [
           {

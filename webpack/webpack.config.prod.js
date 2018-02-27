@@ -41,15 +41,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.(json)$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'json-loader',
-          },
-        ],
-      },
-      {
         test: /\.less$/,
         use: [
           {
@@ -163,16 +154,5 @@ module.exports = {
       sourceMap: true,
     }),
     new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.[hash].js',
-      minChunks(module, count) {
-        const { context } = module;
-        return context && context.indexOf('node_modules') >= 0;
-      },
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-    }),
   ],
 };
